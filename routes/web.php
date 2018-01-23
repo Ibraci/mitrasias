@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
+
+    // $user = DB::table('employees')->where('id', 3)->get();
+
+    // $name = $user['name'];
+    // dd($user);
+
     return view('pages.home');
+});
+
+Route::get('/enquiry', function () {
+
+    return view('pages.enquiry.enquiry');
+});
+
+Route::get('/welcome', function () {
+    return view('welcome');
 });
