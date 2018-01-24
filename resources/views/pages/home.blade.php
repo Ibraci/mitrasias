@@ -1,4 +1,4 @@
-@extends('layouts.master', ['title' => 'Home'])
+@extends('layouts.master', ['title' => 'Search'])
 
 @section('content')
     <div class="row">
@@ -36,7 +36,9 @@
                     <i class="material-icons prefix">book</i>
                     <select name="course">
                         <option value="" disabled selected>Choose your option</option>
-                        <option value="#id">course</option>
+                        @foreach ($courses as $course)
+                            <option value="{{ $course->id }}">{{ $course->course_name }}</option>
+                        @endforeach
                     </select>
                     <label>Courses</label>
                 </div>

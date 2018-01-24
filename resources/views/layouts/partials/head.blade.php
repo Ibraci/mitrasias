@@ -6,6 +6,8 @@
         <meta name="description" content="Responsive Admin Dashboard Template" />
         <meta name="keywords" content="mitrasias, enquiry, registration, video, api" />
         <meta name="author" content="Ibrahim CISSSE <ibraci1960@gmail.com>" />
+        {{-- Favicon --}}
+        <link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}">
 
         <!-- Styles -->
         <link rel="stylesheet" type="text/css" href="{{asset('assets/css/materialize.min.css')}}">

@@ -11,31 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    DB::table('courses')->insert([
-        ['course_name' => 'Epoche Test Series Program Offline', 'course_fees' => '47000'],
-        ['course_name' => 'Epoche Test Series Program Online', 'course_fees' => '47000'],
-        ['course_name' => 'Ethics Classroom Offline', 'course_fees' => '47000'],
-        ['course_name' => 'Ethics Classroom Online', 'course_fees' => '47000'],
-        ['course_name' => 'GS Foundation Batch 2018 Offline', 'course_fees' => '47000'],
-        ['course_name' => 'GS Foundation Batch 2018 Online', 'course_fees' => '47000'],
-        ['course_name' => 'Main Test Series Batch 2018 Offline', 'course_fees' => '47000'],
-        ['course_name' => 'Main Test Series Batch 2018 Online', 'course_fees' => '47000'],
-        ['course_name' => 'Philosophy Classroom Program Offline Evening', 'course_fees' => '47000'],
-        ['course_name' => 'Philosophy Classroom Program Online Evening', 'course_fees' => '47000'],
-        ['course_name' => 'Philosophy Classroom Program Offline Morning', 'course_fees' => '47000'],
-        ['course_name' => 'Philosophy Classroom Program Online Morning', 'course_fees' => '47000'],
-        ['course_name' => 'Prelims Test Series 2018', 'course_fees' => '47000']
-    ]);
+// import namespace
+use App\Models\Course;
+use App\Models\Student;
 
-    // $courses = App\Models\Course::all();
-    //
-    // return view('pages.home')->withCourses($courses);
+Route::get('/', function () {
+    $courses = Course::all();
+
+    return view('pages.home')->withCourses($courses);
 });
 
 Route::get('/enquiry', function () {
 
     return view('pages.enquiry.enquiry');
+});
+
+Route::get('/leads', function () {
+
+    return view('pages.enquiry.leads');
+});
+
+Route::get('/students', function () {
+    $students = Student::all();
+
+    return view('pages.students.students-list')->withStudents($students);
 });
 
 Route::get('/welcome', function () {

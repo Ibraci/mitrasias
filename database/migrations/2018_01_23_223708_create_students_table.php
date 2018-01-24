@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             // Student Details
-            $table->string('rollno', 120);
+            $table->string('rollno', 120)->nullable();
             $table->string('first_name', 60);
             $table->string('middle_name', 60)->nullable();
             $table->string('last_name', 60)->nullable();

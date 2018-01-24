@@ -28,9 +28,9 @@
             {{-- Main body --}}
             <main class="mn-inner inner-active-sidebar">
                 <div class="middle-content">
-                    <div class="row no-m-t no-m-b">
+                    <div class="row">
                         <div class="col s12 m12 l12">
-                            <div class="card invoices-card">
+                            <div class="card">
                                 {{-- <div class="card-content"> --}}
                         {{-- <main class="mn-inner inner-active-sidebar hidden-fixed-sidebar"> --}}
                             {{-- centent --}}

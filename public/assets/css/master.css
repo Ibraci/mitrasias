@@ -1,1 +1,19 @@
 /* Write your custom CSS here */
+
+/* Sibebar Submenu */
+.sidebar-menu>li>ul.sub-menu {
+    display:none;
+}
+
+.sidebar-menu>li.active>ul.sub-menu,.sidebar-menu>li>ul.sub-menua {
+    display:block;
+}
+
+/* Enquiry Leads List */
+.demo-list-control {
+  width: 300px;
+}
+
+.demo-list-radio {
+  display: inline;
+}

@@ -4,19 +4,7 @@
                     </div>
                 </div>
             </main>
-            <div class="page-footer">
-                <div class="footer-grid container">
-                    <div class="footer-l white">&nbsp;</div>
-                    <div class="footer-grid-l white">
-
-                    </div>
-                    <div class="footer-r white">&nbsp;</div>
-
-                </div>
-            </div>
         </div>
-
-
 
         <!-- Javascripts -->
         <script src="{{asset('assets/plugins/jquery/jquery-2.2.0.min.js')}}"></script>
