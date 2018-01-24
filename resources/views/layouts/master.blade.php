@@ -17,7 +17,7 @@
                             </a>
                         </section>
                         <div class="header-title col s3 m3">
-                            <span class="chapter-title">Afra Group</span>
+                            <span class="chapter-title">Mitras IAS</span>
                         </div>
                     </div>
                 </nav>
@@ -31,11 +31,11 @@
                     <div class="row no-m-t no-m-b">
                         <div class="col s12 m12 l12">
                             <div class="card invoices-card">
-                                <div class="card-content">
+                                {{-- <div class="card-content"> --}}
                         {{-- <main class="mn-inner inner-active-sidebar hidden-fixed-sidebar"> --}}
                             {{-- centent --}}
 
-                            {{-- @yield('content') --}}
+                            @yield('content')
 
                         {{-- </main> --}}
                     </div>

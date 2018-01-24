@@ -22,16 +22,17 @@
     <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
         <li class="no-padding active"><a class="waves-effect waves-grey " href="home.php"><i class="material-icons">search</i>Search</a></li>
         <li class="no-padding">
-            <a href="form-wizard.php" class="collapsible-header waves-effect waves-grey"><i class="material-icons">mail_outline</i>Enquiry Barcode</a>
+            <a href="/enquiry" class="collapsible-header waves-effect waves-grey"><i class="material-icons">mail_outline</i>Enquiry</a>
         </li>
         <li class="no-padding">
-            <a  href="adduser.php" class="collapsible-header waves-effect waves-grey"><i class="material-icons">add</i>New Registration</a>
-
+            <a  href="/new-registration" class="collapsible-header waves-effect waves-grey"><i class="material-icons">add</i>New Registration</a>
+        </li>
+        <li class="no-padding">
+            <a  href="sms-email" class="collapsible-header waves-effect waves-grey"><i class="material-icons">email</i>SMS and Email</a>
         </li>
     </ul>
     <div class="footer">
-        <p class="copyright">Tech Cloud Ltd. ©</p>
-        <a href="#!">Privacy</a> &amp; <a href="#!">Terms</a>
+        <p class="copyright">Mitras IAS. © {{ date('Y') }}</p>
     </div>
     </div>
 </aside>
