@@ -12,31 +12,20 @@
 */
 
 // import namespace
-use App\Models\Course;
 use App\Models\Student;
 
-Route::get('/', function () {
-    $courses = Course::all();
+Route::get('/', 'CoursesController@show');
 
-    return view('pages.home')->withCourses($courses);
-});
+Route::get('/enquiry', 'EnquriesController@show');
 
-Route::get('/enquiry', function () {
+Route::get('/leads', 'LeadsController@show');
 
-    return view('pages.enquiry.enquiry');
-});
-
-Route::get('/leads', function () {
-
-    return view('pages.enquiry.leads');
-});
-
-Route::get('/students', function () {
-    $students = Student::all();
-
-    return view('pages.students.students-list')->withStudents($students);
-});
+Route::get('/students', 'StudentsListController@show');
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

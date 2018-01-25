@@ -44,7 +44,7 @@
                 <a class="collapsible-header waves-effect waves-grey" href="#"><i class="material-icons">email</i>Communication<i class="material-icons right">arrow_drop_down</i></a>
                 <ul class="sub-menu">
                     <li><a href="/leads">SMS</a></li>
-                    <li><a href="/enquiry">E-Mail</li>
+                    <li><a href="/enquiry">E-Mail</a></li>
                 </ul>
             </li>
         </ul>

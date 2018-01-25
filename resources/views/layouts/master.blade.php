@@ -38,11 +38,11 @@
                             @yield('content')
 
                         {{-- </main> --}}
-                    </div>
+                    {{-- </div>
                 </div>
             </main>
         </div>
-    <div class="left-sidebar-hover"></div>
+    <div class="left-sidebar-hover"></div> --}}
 
 
 
