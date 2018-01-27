@@ -20,11 +20,7 @@ Route::get('/enquiry', 'EnquriesController@show');
 
 Route::get('/leads', 'LeadsController@show');
 
-Route::get('/students', 'StudentsListController@show');
-
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+Route::resource('/students', 'StudentsController');
 
 Auth::routes();
 

@@ -37,12 +37,14 @@ class CreateStudentsTable extends Migration
             $table->string('guardian_relation', 60)->nullable(); // Father, Mother or Other
             $table->string('guardian_phone', 20)->nullable();
             $table->string('guardian_email', 120)->nullable();
-            $table->string('guardian_Occupation', 200)->nullable();
+            $table->string('guardian_gender', 30)->nullable();
+            $table->string('guardian_occupation', 200)->nullable();
             // Admission Details
             $table->string('course_name', 200);
             $table->string('course_academic_year', 20);
-            $table->integer('course_quantity');
+            $table->integer('course_quantity')->default(1);
             $table->float('course_fees');
+            $table->string('courses_discount_method')->default('Cash');
             $table->float('course_discount')->nullable();
             $table->float('course_total_fees');
             $table->string('course_notes', 255)->nullable();
