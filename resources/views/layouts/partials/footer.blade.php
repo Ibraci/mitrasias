@@ -6,6 +6,8 @@
             </main>
         </div>
 
+        @yield('button-float')
+
         <!-- Javascripts -->
         <script src="{{asset('assets/plugins/jquery/jquery-2.2.0.min.js')}}"></script>
         <script src="{{asset('assets/plugins/materialize/js/materialize.min.js')}}"></script>

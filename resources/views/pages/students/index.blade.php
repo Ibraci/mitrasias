@@ -35,4 +35,13 @@
 
         </tbody>
     </table>
+
+    @section('button-float')
+        <div class="fixed-action-btn horizontal">
+            <a href="{{ route('students.create') }}" class="btn-floating btn-large red">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
+    @endsection
+
 @endsection

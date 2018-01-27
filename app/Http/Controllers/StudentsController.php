@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Student;
 
+use App\Models\Course;
+
 class StudentsController extends Controller
 {
     /**
@@ -27,7 +29,9 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        $courses = Course::all();
+
+        return view('pages.students.create', compact('courses'));
     }
 
     /**

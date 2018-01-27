@@ -29,10 +29,10 @@
                 </ul>
             </li>
             <li class="no-padding">
-                <a class="collapsible-header waves-effect waves-grey" href="/students"><i class="material-icons">people</i>Students</a>
+                <a class="collapsible-header waves-effect waves-grey" href="{{ route('students.index') }}"><i class="material-icons">people</i>Students</a>
             </li>
             <li class="no-padding">
-                <a class="collapsible-header waves-effect waves-grey" href="#registrations"><i class="material-icons">note_add</i>Registrations</a>
+                <a class="collapsible-header waves-effect waves-grey" href="{{ route('students.create') }}"><i class="material-icons">note_add</i>Admission</a>
             </li>
             <li class="no-padding">
                 <a class="collapsible-header waves-effect waves-grey" href="#courses"><i class="material-icons">book</i>Courses</a>
