@@ -17,3 +17,17 @@
 .demo-list-radio {
   display: inline;
 }
+
+/* alert box */
+.alert-color{
+  background-color:#FFEBEE;
+}
+
+.icon_style{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: red;
+    cursor:pointer;
+}

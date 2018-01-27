@@ -1,6 +1,24 @@
 @extends('layouts.master', ['title' => 'Admission Students'])
 
 @section('content')
+    @if ($errors->any())
+        <div class="row" id="alert_box">
+            <div class="col s12 m12">
+                <div class="card alert-color darken-1">
+                    <div class="row">
+                        <div class="col s12 m10">
+                        @foreach ($errors->all() as $error)
+                            <div class="card-content red-text">{{ $error }}</div>
+                        @endforeach
+                        </div>
+                        <div class="col s12 m2">
+                            <i class="fa fa-times icon_style" id="alert_close" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="row">
         <form class="col s12" method="POST" action="{{ route('students.store') }}">
 
@@ -39,58 +57,27 @@
                     <label for="email">Email</label>
                 </div>
 
-                <div class="col 12">
-                    <div class="input-field col s3">
-                        <label for="">Choose Date of Birth</label>
-                    </div>
-
-                    <div class="input-field col s3">
-                        <select name="day_of_birth">
-                            <option value="" disabled selected>Choose the day</option>
-
-                            @for ($day = 1; $day <= 31; $day++)
-                                <option value="{{ $day }}">{{ $day }}</option>
-                            @endfor
-                        </select>
-                    </div>
-
-                    <div class="input-field col s3">
-                        <select name="month_of_birth">
-                            <option value="" disabled selected>Choose the month</option>
-
-                            @for ($month = 1; $month <= 12; $month++)
-                                <option value="{{ $month }}">{{ $month }}</option>
-                            @endfor
-                        </select>
-                    </div>
-
-                    <div class="input-field col s3">
-                        <select name="year_of_birth">
-                            <option value="" disabled selected>Choose the year</option>
-
-                            @for ($year = 1950; $year <= date('Y') - 5; $year++)
-                                <option value="{{ $year }}">{{ $year }}</option>
-                            @endfor
-                        </select>
-                    </div>
+                <div class="input-field col s4">
+                    <input name="date_of_birth" id="date_of_birth" type="text" class="datepicker">
+                    <label for="date_of_birth">Choose Date of Birth</label>
                 </div>
 
-                <div class="col s12">
+                <div class="col s8">
                     <div class="col s3">
                         <p>Gender</p>
                     </div>
 
-                    <div class="col s3">
+                    <div class="col s4">
                         <p>
-                            <input name="gender" type="radio" id="Male" value="M"/>
-                            <label for="Male">Male</label>
+                            <input name="gender" type="radio" id="male" value="Male"/>
+                            <label for="male">Male</label>
                         </p>
                     </div>
 
-                    <div class="col s3">
+                    <div class="col s4">
                         <p>
-                            <input name="gender" type="radio" id="Female" value="F"/>
-                            <label for="Female">Female</label>
+                            <input name="gender" type="radio" id="female" value="Female"/>
+                            <label for="female">Female</label>
                         </p>
                     </div>
                 </div>
@@ -162,7 +149,7 @@
                 <div class="input-field col s6">
                     <i class="material-icons prefix">group</i>
                     <select>
-                        <option value="" disabled selected>Relationship</option>
+                        <option disabled selected>Relationship</option>
                         <option value="Father">Father</option>
                         <option value="Mother">Mother</option>
                         <option value="Other">Other</option>
@@ -188,15 +175,15 @@
 
                     <div class="col s3">
                         <p>
-                            <input name="guardian_gender" type="radio" id="male" value="M"/>
-                            <label for="male">Male</label>
+                            <input name="guardian_gender" type="radio" id="guardian_male" value="Male"/>
+                            <label for="guardian_male">Male</label>
                         </p>
                     </div>
 
                     <div class="col s3">
                         <p>
-                            <input name="guardian_gender" type="radio" id="female" value="F"/>
-                            <label for="female">Female</label>
+                            <input name="guardian_gender" type="radio" id="guardian_female" value="Female"/>
+                            <label for="guardian_female">Female</label>
                         </p>
                     </div>
                 </div>
@@ -221,7 +208,7 @@
                 <div class="input-field col s4">
                     <i class="material-icons prefix">forward_10</i>
                     <select name="course_quantity">
-                        <option value="" disabled selected>Choose the option</option>
+                        <option disabled selected>Choose the option</option>
 
                         @for ($qty = 1; $qty <= 10; $qty++)
                             <option value="{{ $qty }}">{{ $qty }}</option>
@@ -246,9 +233,10 @@
                     <i class="material-icons prefix">payment</i>
                     <select name="payment_method">
                         <option disabled selected>Choose the option</option>
-                        <option value="Cashier">Cashier</option>
+                        <option value="Cash">Cash</option>
                         <option value="Debit Card - Credit Card ">Debit Card - Credit Card </option>
                         <option value="Bank Transfert">Bank Transfert</option>
+                        <option value="Cashier">Cashier</option>
                         <option value="Wallet">Wallet</option>
                         <option value="Other">Other</option>
                     </select>
@@ -275,7 +263,7 @@
 
                 <div class="input-field col s4">
                     <i class="material-icons prefix">payment</i>
-                    <select name="course_name">
+                    <select name="course_discount_method">
                         <option disabled selected>Choose the option</option>
                         <option value="Percentage">Percentage</option>
                         <option value="Amount">Amount</option>
@@ -310,6 +298,19 @@
 
 @section('script')
     <script type="text/javascript">
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 200, // Creates a dropdown of 15 years to control year,
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            closeOnSelect: true // Close upon selecting a date,
+        });
 
+        //
+        $('#alert_close').click(function(){
+            $( "#alert_box" ).fadeOut( "slow", function() {
+            });
+        });
     </script>
 @endsection
