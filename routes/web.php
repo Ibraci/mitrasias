@@ -14,13 +14,15 @@
 // import namespace
 use App\Models\Student;
 
-Route::get('/', 'CoursesController@show');
+Route::get('/', 'StudentsController@index');
 
 Route::get('/enquiry', 'EnquriesController@show');
 
 Route::get('/leads', 'LeadsController@show');
 
 Route::resource('/students', 'StudentsController');
+
+Route::resource('/courses', 'CoursesController');
 
 Auth::routes();
 

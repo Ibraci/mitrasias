@@ -29,7 +29,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        $courses = Course::all();
+        $courses = Course::latest()->take(20)->get();
 
         return view('pages.students.create', compact('courses'));
     }
