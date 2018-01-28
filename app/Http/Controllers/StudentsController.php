@@ -42,16 +42,16 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request,  [
-        //     'rollno' => 'required',
-        //     'first_name' => 'required|min:3',
+        $this->validate($request,  [
+            'rollno' => 'required|unique:students',
+            'first_name' => 'required|min:3',
         //     'middle_name' => 'nullable|min:1',
-        //     'last_name' => 'nullable|min:1',
-        //     'email' => 'required|unique:students|email',
-        //     'phone' => 'required|unique:students|numeric|min:10',
-        //     'gender' => 'required',
-        //     'date_of_birth' => 'required|date',
-        //     'address' => 'required',
+            'last_name' => 'nullable|min:1',
+            'email' => 'required|unique:students|email',
+            'phone' => 'required|unique:students|numeric|min:10',
+            'gender' => 'required',
+            'date_of_birth' => 'required|date',
+            'address' => 'required',
         //     'pictures' => 'nullable|file',
         //     'documents' => 'nullable|file',
         //     'school_college' => 'nullable|min:5',
@@ -62,12 +62,12 @@ class StudentsController extends Controller
         //     'guardian_relation' => 'nullable',
         //     'guardian_phone' => 'nullable',
         //     'guardian_email' => 'nullable',
-        //     'guardian_gender' => 'nullable',
+            'guardian_gender' => 'nullable',
         //     'guardian_occupation' => 'nullable',
-        //     'course_name' => 'required',
+            'course_name' => 'required',
         //     'course_academic_year' => 'required',
         //     'course_quantity' => 'nullable',
-        //     'course_fees' => 'required',
+            'course_fees' => 'required',
         //     'course_discount' => 'nullable',
         //     'course_discount_method' => 'nullable',
         //     'course_total_fees' => 'nullable',
@@ -75,7 +75,7 @@ class StudentsController extends Controller
         //     'course_batch' => 'nullable',
         //     'payment_method' => 'nullable',
         //     'payment_installment' => 'default:3',
-        // ]);
+        ]);
 
         Student::create([
             'rollno' => $request->rollno,

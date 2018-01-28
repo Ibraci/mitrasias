@@ -304,10 +304,12 @@
             today: 'Today',
             clear: 'Clear',
             close: 'Ok',
-            closeOnSelect: true // Close upon selecting a date,
+            closeOnSelect: true, // Close upon selecting a date,
+            format: 'yyyy-mm-dd',
+            formatSubmit: 'yyyy-mm-dd'
         });
 
-        //
+        // alert box
         $('#alert_close').click(function(){
             $( "#alert_box" ).fadeOut( "slow", function() {
             });
