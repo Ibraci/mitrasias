@@ -23,12 +23,16 @@
                     <td>{{ $student->email }}</td>
                     <td>{{ $student->phone }}</td>
                     <td>
-                        <a href="#">
+                        <a href="{{ route('students.edit', $student) }}">
                             <i class="fa fa-pencil-square-o" aria-hidden="true" style="color: red"></i>
                         </a> &nbsp;&nbsp;&nbsp;
-                        <a href="id">
-                            <i class="fa fa-trash-o" aria-hidden="true" style="color: red"></i>
-                        </a> &nbsp;&nbsp;&nbsp;
+                        <form action="{{ route('students.destroy', $student) }}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button style="background:none; border: none;" type="submit">
+                                <i class="fa fa-trash-o" aria-hidden="true" style="color: red"></i>
+                            </button>
+                        </form> &nbsp;&nbsp;&nbsp;
                     </td>
                 </tr>
             @endforeach
