@@ -38,6 +38,7 @@
             @endforeach
 
         </tbody>
+        {{ $students->links() }}
     </table>
 
     @section('button-float')

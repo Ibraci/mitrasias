@@ -36,7 +36,7 @@ return [
     ],
 
     'elastic_email' => [
-    	'key' => env('1fedf3d0-4e8e-47a6-8721-a7742a2af7a7'),
-    	'account' => env('a89ab5b2-b0fa-4ead-8cbb-c915a7ac8aec'),
+    	'key' => env('ELASTIC_KEY'),
+    	'account' => env('ELASTIC_ACCOUNT')
     ],
 ];

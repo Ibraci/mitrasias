@@ -8,6 +8,9 @@ use App\Models\Student;
 
 use App\Models\Course;
 
+use Illuminate\Support\Facades\Session;
+
+
 class StudentsController extends Controller
 {
     /**
@@ -17,7 +20,8 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+        // dd(Session::all());
+        $students = Student::paginate(20);
 
         return view('pages.students.index', compact('students'));
     }
@@ -123,7 +127,9 @@ class StudentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $student = Student::findOrFail($id);
+
+        return view('pages.students.show', compact('student'));
     }
 
     /**
@@ -235,6 +241,6 @@ class StudentsController extends Controller
     {
         Student::destroy($id);
 
-        return redirect()->route('courses.index');
+        return redirect()->route('students.index');
     }
 }

@@ -17,8 +17,9 @@
 
             @foreach ($courses as $course)
                 <tr>
+
                     <td>{{ $course->course_code }}</td>
-                    <td>{{ $course->course_name }}</td>
+                    <td><a href="{{ route('courses.show', $course) }}">{{ $course->course_name }}</a></td>
                     <td>₹ {{ $course->course_fees }}</td>
                     <td>{{ $course->course_type }}</td>
                     <td>{{ $course->course_shift }}</td>

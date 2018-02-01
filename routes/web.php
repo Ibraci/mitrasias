@@ -12,7 +12,6 @@
 */
 
 // import namespace
-use App\Models\Student;
 
 Route::get('/', 'StudentsController@index');
 
@@ -23,6 +22,10 @@ Route::get('/leads', 'LeadsController@show');
 Route::resource('/students', 'StudentsController');
 
 Route::resource('/courses', 'CoursesController');
+
+Route::get('/communications/email', 'CommunicationsController@email');
+
+Route::get('/communications/sms', 'CommunicationsController@sms');
 
 Auth::routes();
 
