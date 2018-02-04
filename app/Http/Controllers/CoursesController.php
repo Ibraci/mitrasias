@@ -41,7 +41,7 @@ class CoursesController extends Controller
         $this->validate($request, [
             'course_name' => 'required|min:5',
             'course_sujects' => 'nullable',
-            'course_code' => 'required|min:2',
+            'course_code' => 'required|min:2|max:7',
             'course_type' => 'required',
             'course_shift' => 'required',
             'course_fees' => 'required|numeric|min:100'

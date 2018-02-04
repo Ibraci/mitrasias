@@ -38,7 +38,7 @@
                 <a class="collapsible-header waves-effect waves-grey" href="{{ route('courses.index') }}"><i class="material-icons">book</i>Courses</a>
             </li>
             <li class="no-padding">
-                <a class="collapsible-header waves-effect waves-grey" href="/new-registration"><i class="material-icons">bookmark</i>Batch</a>
+                <a class="collapsible-header waves-effect waves-grey" href="{{ route('batches.index') }}"><i class="material-icons">bookmark</i>Batches</a>
             </li>
             <li class="no-padding">
                 <a class="collapsible-header waves-effect waves-grey" href="#"><i class="material-icons">email</i>Communication<i class="material-icons right">arrow_drop_down</i></a>

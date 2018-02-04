@@ -23,6 +23,8 @@ Route::resource('/students', 'StudentsController');
 
 Route::resource('/courses', 'CoursesController');
 
+Route::resource('/batches', 'BatchesController');
+
 Route::get('/communications/email', 'CommunicationsController@email');
 
 Route::get('/communications/sms', 'CommunicationsController@sms');

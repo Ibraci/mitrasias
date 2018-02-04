@@ -17,7 +17,9 @@
                             </a>
                         </section>
                         <div class="header-title col s3 m3">
-                            <span class="chapter-title">Mitras IAS</span>
+                            <a href="/">
+                                <span class="chapter-title">Mitras IAS</span>
+                            </a>
                         </div>
                     </div>
                 </nav>

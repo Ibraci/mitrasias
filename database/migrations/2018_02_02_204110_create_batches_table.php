@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBacthTable extends Migration
+class CreateBatchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateBacthTable extends Migration
      */
     public function up()
     {
-        Schema::create('bacth', function (Blueprint $table) {
+        Schema::create('batches', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('batch_name', 200);
-            $table->string('batch_sujects', 200);
+            $table->string('batch_number', 200);
+            $table->string('batch_subject', 200);
+            $table->string('batch_course', 200);
             $table->string('batch_academic_year', 20);
         });
     }
@@ -29,6 +31,6 @@ class CreateBacthTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bacth');
+        Schema::dropIfExists('batches');
     }
 }

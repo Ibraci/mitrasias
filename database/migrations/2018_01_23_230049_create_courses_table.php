@@ -17,7 +17,10 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('course_name', 200);
+            $table->string('course_code', 10);
             $table->string('course_sujects', 200)->nullable();
+            $table->string('course_type', 80)->nullable();
+            $table->string('course_shift', 80)->nullable();
             $table->float('course_fees');
         });
     }
