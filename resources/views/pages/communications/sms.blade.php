@@ -20,7 +20,7 @@
         </div>
     @endif
     <div class="row">
-        <form class="col s12" method="POST" action="{{ route('courses.store') }}">
+        <form class="col s12" method="POST" action="/communications/sms/uri">
 
             {{ csrf_field() }}
 
@@ -36,16 +36,10 @@
                     <label for="sms">SMS</label>
                 </div>
 
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">bookmark</i>
-                    <input id="email_subject" type="text" class="validate" name="email_subject">
-                    <label for="email_subject">Subject</label>
-                </div>
-
                 <div class="input-field col s12">
                     <i class="material-icons prefix">description</i>
-                    <textarea id="email_message" name="email_message" class="materialize-textarea"></textarea>
-                    <label for="email_message">Text</label>
+                    <textarea id="sms_message" name="sms_message" class="materialize-textarea"></textarea>
+                    <label for="sms_message">Text</label>
                 </div>
 
                 <div class="col s12">

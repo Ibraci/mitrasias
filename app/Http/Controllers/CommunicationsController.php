@@ -8,8 +8,20 @@ use Rdanusha\LaravelElasticEmail;
 
 use Illuminate\Support\Facades\Mail;
 
+// use GuzzleHttp\Psr7\Request;
+
 class CommunicationsController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -95,8 +107,25 @@ class CommunicationsController extends Controller
 
     public function sms()
     {
-        // $student = Student::findOrFail($id);
-
         return view('pages.communications.sms');
     }
+
+    public function smsSend(Request $request)
+    {
+        $phone = $request->sms;
+        $text = $request->sms_message;
+
+        $request = new Request('GET', 'http://bhashsms.com/api/sendmsg.php?user=shashi2&pass=123&sender=MITRAS&phone='.$phone.'&text='.$text.'&priority=ndnd&stype=normal', [
+            'query' => [
+                'sms' => 'phone',
+                'sms_message' => 'text',
+            ]
+        ]);
+        $response = $client->send($request, ['timeout' => 2]);
+        // dd($response);
+
+        return redirect('/communications/sms');
+    }
+
+
 }

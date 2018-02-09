@@ -9,6 +9,16 @@ use App\Models\Course;
 class CoursesController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -125,6 +135,8 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
+        $course = Course::findOrFail($id);
+
         Course::destroy($id);
 
         return redirect()->route('courses.index');

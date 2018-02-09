@@ -284,7 +284,7 @@
                 </div>
 
                 {{-- Roll Number --}}
-                <input type="hidden" name="rollno" value="{{ date('Y') }}-">
+                <input type="hidden" name="rollno" value="{{ date('Y') }}-{{date('m')}}-{{'m'}}">
 
                 <div class="col s12">
                     <button class="btn waves-effect waves-light" type="submit" onclick="viewData()" name="submit">Submit
