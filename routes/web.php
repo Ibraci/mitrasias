@@ -33,4 +33,9 @@ Route::post('communications/sms/uri', 'CommunicationsController@smsSend');
 
 Auth::routes();
 
+Route::get('/logout', function() {
+    Auth::logout();
+    return redirect('/login');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');

@@ -15,12 +15,15 @@
             <ul>
                 <li class="divider"></li>
                 <li class="no-padding">
-                    <a href="logout.php" class="waves-effect waves-grey"><i class="material-icons">exit_to_app</i>Sign Out</a>
+                    <a href="/profile" class="waves-effect waves-grey"><i class="material-icons">person</i>Profile</a>
+                </li>
+                <li class="no-padding">
+                    <a href="/logout" class="waves-effect waves-grey"><i class="material-icons">exit_to_app</i>Sign Out</a>
                 </li>
             </ul>
         </div>
         <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
-            <li class="no-padding active"><a class="waves-effect waves-grey " href="/"><i class="material-icons">search</i>Search</a></li>
+            <li class="no-padding active"><a class="waves-effect waves-grey " href="/enquiry"><i class="material-icons">search</i>Search</a></li>
             <li class="no-padding">
                 <a class="collapsible-header waves-effect waves-grey" href="#"><i class="material-icons">add_to_queue</i>Enquiry<i class="material-icons right">arrow_drop_down</i></a>
                 <ul class="sub-menu">
