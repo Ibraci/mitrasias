@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
-class LeadsController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -19,11 +18,10 @@ class LeadsController extends Controller
         $this->middleware('auth');
     }
 
-    public function show ()
+    public function show()
     {
-        $students = Student::all();
         $user = Auth::user();
-        return view('pages.enquiry.leads', compact('students', 'user'));
-
+        
+        return view('auth.profile', compact('user'));
     }
 }

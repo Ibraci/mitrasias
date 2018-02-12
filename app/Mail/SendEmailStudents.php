@@ -11,14 +11,16 @@ class SendEmailStudents extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $emails;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($emails)
     {
-        //
+        $this->emails = $emails;
     }
 
     /**
@@ -28,6 +30,6 @@ class SendEmailStudents extends Mailable
      */
     public function build()
     {
-        // return $this->view('emails.students-admission');
+        return $this->view('emails.email-body');
     }
 }

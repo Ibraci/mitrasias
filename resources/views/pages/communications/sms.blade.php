@@ -20,7 +20,7 @@
         </div>
     @endif
     <div class="row">
-        <form class="col s12" method="POST" action="/communications/sms/uri">
+        <form class="col s12" method="POST" action="/communications/sms/send">
 
             {{ csrf_field() }}
 

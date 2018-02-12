@@ -20,7 +20,7 @@
         </div>
     @endif
     <div class="row">
-        <form class="col s12" method="POST" action="/communications/email/send">
+        <form class="col s12" method="POST" action="{{ route('emails.store') }}">
 
             {{ csrf_field() }}
 
@@ -32,20 +32,20 @@
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">email</i>
-                    <input id="email" type="text" class="validate" name="email">
-                    <label for="email">Email*</label>
+                    <input id="emailId" type="text" class="validate" name="emailId">
+                    <label for="emailId">Email*</label>
                 </div>
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">bookmark</i>
-                    <input id="email_subject" type="text" class="validate" name="email_subject">
-                    <label for="email_subject">Subject*</label>
+                    <input id="emailSubject" type="text" class="validate" name="emailSubject">
+                    <label for="emailSubject">Subject*</label>
                 </div>
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">description</i>
-                    <textarea id="email_message" name="email_message" class="materialize-textarea"></textarea>
-                    <label for="email_message">Text*</label>
+                    <textarea id="emailMessage" name="emailMessage" class="materialize-textarea"></textarea>
+                    <label for="emailMessage">Text*</label>
                 </div>
 
                 <div class="col s12">

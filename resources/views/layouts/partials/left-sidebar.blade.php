@@ -7,7 +7,10 @@
             </div>
             <div class="sidebar-profile-info">
                 <a href="javascript:void(0);" class="account-settings-link">
-                    <p>John Doe<i class="material-icons right">arrow_drop_down</i></p>
+                    <p>
+                        {{ Auth::user()->first_name }}
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </p>
                 </a>
             </div>
         </div>
@@ -47,7 +50,7 @@
                 <a class="collapsible-header waves-effect waves-grey" href="#"><i class="material-icons">email</i>Communication<i class="material-icons right">arrow_drop_down</i></a>
                 <ul class="sub-menu">
                     <li><a href="/communications/sms">SMS</a></li>
-                    <li><a href="/communications/email">E-Mail</a></li>
+                    <li><a href="{{ route('emails.create') }}">E-Mail</a></li>
                 </ul>
             </li>
         </ul>

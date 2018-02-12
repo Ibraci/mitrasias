@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="col s12">
-                    <h5 class="admission-details-title">Guardian Details</h4>
+                    <h5 class="admission-details-title">Guardian Details (Optionals)</h4>
                     <hr>
                 </div>
                 <div class="input-field col s4">

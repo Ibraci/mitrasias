@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
-
 use App\Models\Batch;
-
 use App\Models\Course;
+use Illuminate\Support\Facades\Auth;
 
 class BatchesController extends Controller
 {
@@ -19,7 +19,7 @@ class BatchesController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *

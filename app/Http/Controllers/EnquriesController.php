@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers \Controller;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class EnquriesController extends Controller
 {
@@ -16,7 +17,7 @@ class EnquriesController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function show ()
     {
         return view('pages.enquiry.enquiry');

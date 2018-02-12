@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Rdanusha\LaravelElasticEmail;
+use App\Models\Email;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Student;
 use App\Mail\SendEmailStudents;
 
-// use GuzzleHttp\Psr7\Request;
-
-class CommunicationsController extends Controller
+class EmailsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -40,7 +37,7 @@ class CommunicationsController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.communications.emails.create');
     }
 
     /**
@@ -51,7 +48,27 @@ class CommunicationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'emailId' => 'required|email',
+            'emailSubject' => 'required|min:3',
+            'emailMessage' => 'required|min:5'
+        ]);
+
+        Email::create([
+            'emailId' => $request->emailId,
+            'emailSubject' => $request->emailSubject,
+            'emailMessage' => $request->emailMessage
+        ]);
+
+        $emails = [];
+
+        $emails['emailId'] = $request->get('emailId');
+        $emails['emailSubject'] = $request->get('emailSubject');
+        $emails['emailMessage'] = $request->get('emailMessage');
+
+        Mail::to($emails['emailId'])->send(new SendEmailStudents($emails));
+
+        return redirect()->route('emails.create');
     }
 
     /**
@@ -99,56 +116,8 @@ class CommunicationsController extends Controller
         //
     }
 
-    public function email()
+    public function emailSend()
     {
-        return view('pages.communications.email');
+        Mail::to($data['email'])->send(new SendEmailStudents($emails));
     }
-
-    public function emailSend(Request $request)
-    {
-        $this->validate($request, [
-            'email' => 'required|email',
-            'email_subject' => 'required|min:3',
-            'email_message' => 'required|min:5'
-        ]);
-
-        $data = array(
-            'email' => $request->email,
-            'emailSubject' => $request->email_subject,
-            'emailMessage' => $request->email_message
-        );
-
-        Mail::to($data['email'])->send(new SendEmailStudents($contact));
-
-        return redirect('/communications/email');
-    }
-
-    public function sms()
-    {
-        return view('pages.communications.sms');
-    }
-
-    public function smsSend(Request $request)
-    {
-        $this->validate($request, [
-            'sms' => 'required|numeric|min:10',
-            'sms_message' => 'required|min:5'
-        ]);
-
-        $phone = $request->sms;
-        $text = $request->sms_message;
-
-        $request = new Request('GET', 'http://bhashsms.com/api/sendmsg.php?user=shashi2&pass=123&sender=MITRAS&phone='.$phone.'&text='.$text.'&priority=ndnd&stype=normal', [
-            'query' => [
-                'sms' => 'phone',
-                'sms_message' => 'text',
-            ]
-        ]);
-        $response = $client->send($request, ['timeout' => 2]);
-        // dd($response);
-
-        return redirect('/communications/sms');
-    }
-
-
 }
