@@ -20,13 +20,13 @@
         </div>
     @endif
     <div class="row">
-        <form class="col s12" method="POST" action="{{ route('students.store') }}">
+        <form class="col s12" method="POST" enctype="multipart/form-data" action="{{ route('students.store') }}">
 
             {{ csrf_field() }}
 
             <div class="row">
                 <div class="col s12">
-                    <h5 class="admission-details-title">Student Details</h4>
+                    <h5 class="admission-details-title">Student Details</h5>
                     <hr>
                 </div>
                 <div class="input-field col s4">
@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="col s12">
-                    <h5 class="admission-details-title">Guardian Details (Optionals)</h4>
+                    <h5 class="admission-details-title">Guardian Details (Optionals)</h5>
                     <hr>
                 </div>
                 <div class="input-field col s4">
@@ -189,13 +189,13 @@
                 </div>
 
                 <div class="col s12">
-                    <h5 class="admission-details-title">Course Details</h4>
+                    <h5 class="admission-details-title">Course Details</h5>
                     <hr>
                 </div>
 
                 <div class="input-field col s8">
                     <i class="material-icons prefix">book</i>
-                    <select name="course_name">
+                    <select name="course_name" id="course_name" onChange="document.getElementById('course_name').innerHTML = this.value;">
                         <option value="" disabled selected>Choose the option</option>
 
                         @foreach ($courses as $course)
@@ -224,7 +224,6 @@
                         <option value="{{ date('Y') + 1 }} - {{ date('Y') + 2 }}">{{ date('Y') + 1 }} - {{ date('Y') + 2 }}</option>
                         <option value="{{ date('Y') }} - {{ date('Y') + 1 }}">{{ date('Y') }} - {{ date('Y') + 1 }}</option>
                         <option value="{{ date('Y') - 1 }} - {{ date('Y') }}">{{ date('Y') - 1 }} - {{ date('Y') }}</option>
-                    </select>
                     </select>
                     <label>Academic Year</label>
                 </div>
@@ -284,10 +283,10 @@
                 </div>
 
                 {{-- Roll Number --}}
-                <input type="hidden" name="rollno" value="{{ date('Y') }}-{{date('m')}}-{{'m'}}">
+                <input type="hidden" name="rollno" value="{{date('Ymd'). '-' . substr(str_shuffle('ASDFGHJKLQWERTYUIOPMNBVCXZ'), -3, 3) . '-' .rand(00001, 12000)}}">
 
                 <div class="col s12">
-                    <button class="btn waves-effect waves-light" type="submit" onclick="viewData()" name="submit">Submit
+                    <button class="btn waves-effect waves-light" type="submit" name="submit">Submit
                         <i class="material-icons right">send</i>
                     </button>
                 </div>

@@ -30,8 +30,8 @@
                         <form action="{{ route('courses.destroy', $course) }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button style="background:none; border: none;" type="submit">
-                                <i class="fa fa-trash-o" aria-hidden="true" style="color: red"></i>
+                            <button type="submit">
+                                <i class="material-icons" aria-hidden="true" style="color: red">delete</i>
                             </button>
                         </form> &nbsp;&nbsp;&nbsp;
                     </td>

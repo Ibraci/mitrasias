@@ -178,7 +178,7 @@
 
                     <div class="col s3">
                         <p>
-                            <input name="guardian_gender" type="radio" id="guardian_male" value="Male"/>
+                            <input name="guarduan_gender" type="radio" id="guardian_male" value="Male"/>
                             <label for="guardian_male">Male</label>
                         </p>
                     </div>

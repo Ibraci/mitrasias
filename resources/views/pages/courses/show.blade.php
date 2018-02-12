@@ -37,7 +37,7 @@
             </a>
             <ul>
                 <li>
-                    <ahref="{{ route('courses.edit', $course) }}"  class="btn-floating red">
+                    <a href="{{ route('courses.edit', $course) }}"  class="btn-floating red">
                         <i class="material-icons">edit</i>
                     </a>
                 </li>
@@ -45,7 +45,7 @@
                     <form action="{{ route('courses.destroy', $course) }}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button style="background:none; border: none;" type="submit">
+                        <button class="btn-floating red" type="submit">
                             <i class="material-icons">delete</i>
                         </button>
                     </form>

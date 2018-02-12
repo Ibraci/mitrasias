@@ -50,7 +50,7 @@ class CoursesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'course_name' => 'required|min:5',
+            'course_name' => 'required|min:3',
             'course_sujects' => 'nullable',
             'course_code' => 'required|min:2|max:7',
             'course_type' => 'required',
@@ -136,7 +136,7 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        $course = Course::findOrFail($id);
+        // $course = Course::findOrFail($id);
 
         Course::destroy($id);
 
