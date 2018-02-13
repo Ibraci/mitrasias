@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Course;
 use Illuminate\Support\Facades\Session;
+use Image;
 
 class StudentsController extends Controller
 {
@@ -62,7 +63,7 @@ class StudentsController extends Controller
             'gender' => 'required',
             'date_of_birth' => 'required|date',
             'address' => 'required',
-            'pictures' => 'nullable|file',
+            'pictures' => 'nullable',
             'documents' => 'nullable|file',
             'school_college' => 'nullable|min:5',
             'guardian_title_name' => 'nullable',
@@ -87,6 +88,14 @@ class StudentsController extends Controller
             'payment_installment' => 'nullable',
         ]);
 
+        if ($request->hasFile['featured_image'])
+        {
+            $pictures = $request->file['featured_image'];
+            $pfilename = time(). '.' .$pictures->getClientOriginalExtension();
+            $location= public_path('assets/images/students/'. $pfilename);
+            Image::make($pictures)->resize(800, 420)->save($location);
+        }
+
         Student::create([
             'rollno' => $request->rollno,
             'first_name' => $request->first_name,
@@ -97,7 +106,7 @@ class StudentsController extends Controller
             'gender' => $request->gender,
             'date_of_birth' => $request->date_of_birth,
             'address' => $request->address,
-            'pictures' => $request->pictures,
+            'pictures' => $pfilename,
             'documents' => $request->documents,
             'school_college' => $request->school_college,
             'guardian_title_name' => $request->guardian_title_name,
@@ -122,7 +131,8 @@ class StudentsController extends Controller
             'payment_installment' => $request->payment_installment
         ]);
 
-        return redirect()->route('students.index');
+        return redirect()->route('students.index')
+                         ->with('success', 'Student has been registered');
     }
 
     /**
@@ -172,7 +182,7 @@ class StudentsController extends Controller
             'gender' => 'required',
             'date_of_birth' => 'required|date',
             'address' => 'required',
-            'pictures' => 'nullable|file',
+            'pictures' => 'nullable',
             'documents' => 'nullable|file',
             'school_college' => 'nullable|min:5',
             'guardian_title_name' => 'nullable',
@@ -191,11 +201,23 @@ class StudentsController extends Controller
             'course_discount' => 'nullable',
             'course_discount_method' => 'nullable',
             'course_total_fees' => 'nullable',
-            'course_notes' => 'nullable',
+            'course_notes' => 'nullable|min:3',
             'course_batch' => 'nullable',
             'payment_method' => 'nullable',
             'payment_installment' => 'nullable',
         ]);
+
+        $pictures = "";
+
+        if ($request->hasFile['pictures'])
+        {
+            $pictures = $request->file['pictures'];
+            $pfilename = time(). '.' .request()->$pictures->getClientOriginalExtension();
+            $location = public_path('assets/images/students/'. $pfilename);
+            Image::make($pictures)->resize(800, 420)->save($location);
+
+            $pictures = $pfilename;
+        }
 
         $students = Student::findOrFail($id);
 
@@ -209,7 +231,7 @@ class StudentsController extends Controller
             'gender' => $request->gender,
             'date_of_birth' => $request->date_of_birth,
             'address' => $request->address,
-            'pictures' => $request->pictures,
+            'pictures' => $pictures,
             'documents' => $request->documents,
             'school_college' => $request->school_college,
             'guardian_title_name' => $request->guardian_title_name,

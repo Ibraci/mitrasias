@@ -43,7 +43,7 @@
                 </div>
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="last_name" type="text" class="validate" name="last_name">
+                    <input id="last_name" type="text" class="validate" name="last_name" value="{{ $student->last_name }}">
                     <label for="last_name">Last Name</label>
                 </div>
 
@@ -71,14 +71,14 @@
 
                     <div class="col s4">
                         <p>
-                            <input name="gender" value="{{ $student->gender }}" type="radio" id="male" value="Male"/>
+                            <input name="gender" type="radio" id="male" value="Male"/>
                             <label for="male">Male</label>
                         </p>
                     </div>
 
                     <div class="col s4">
                         <p>
-                            <input name="gender" value="{{ $student->gender }}" type="radio" id="female" value="Female"/>
+                            <input name="gender" type="radio" id="female" value="Female"/>
                             <label for="female">Female</label>
                         </p>
                     </div>
@@ -127,25 +127,25 @@
                 </div>
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="guardian_first_name" type="text" class="validate" name="guardian_first_name">
+                    <input id="guardian_first_name" type="text" class="validate" name="guardian_first_name" value="{{ $student->guardian_first_name }}">
                     <label for="guardian_first_name">First Name</label>
                 </div>
 
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="guardian_middle_name" type="text" class="validate" name="guardian_middle_name">
+                    <input id="guardian_middle_name" type="text" class="validate" name="guardian_middle_name" value="{{ $student->guardian_middle_name }}">
                     <label for="guardian_middle_name">Middle Name</label>
                 </div>
 
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="guardian_last_name" type="text" class="validate" name="guardian_last_name">
+                    <input id="guardian_last_name" type="text" class="validate" name="guardian_last_name" value="{{ $student->guardian_last_name }}">
                     <label for="guardian_last_name">Last Name</label>
                 </div>
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">work</i>
-                    <input id="guardian_occupation" type="text" class="validate" name="guardian_occupation">
+                    <input id="guardian_occupation" type="text" class="validate" name="guardian_occupation" value="{{ $student->guardian_occupation }}">
                     <label for="guardian_occupation">Occupation</label>
                 </div>
 
@@ -161,13 +161,13 @@
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">phone</i>
-                    <input id="guardian_phone" type="tel" class="validate" name="guardian_phone">
+                    <input id="guardian_phone" type="tel" class="validate" name="guardian_phone" value="{{ $student->guardian_phone }}">
                     <label for="guardian_phone">Telephone</label>
                 </div>
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">email</i>
-                    <input id="guardian_email" type="email" class="validate" name="guardian_email">
+                    <input id="guardian_email" type="email" class="validate" name="guardian_email" value="{{ $student->guardian_email }}">
                     <label for="guardian_email">Email</label>
                 </div>
 
@@ -185,7 +185,7 @@
 
                     <div class="col s3">
                         <p>
-                            <input name="guardian_gender" type="radio" id="guardian_female" value="Female"/>
+                            <input name="guarduan_gender" type="radio" id="guardian_female" value="Female"/>
                             <label for="guardian_female">Female</label>
                         </p>
                     </div>
@@ -199,7 +199,7 @@
                 <div class="input-field col s8">
                     <i class="material-icons prefix">book</i>
                     <select name="course_name">
-                        <option value="" disabled selected>Choose the option</option>
+                        <option value="{{ $student->course_name }}" selected>{{ $student->course_name }}</option>
 
                         @foreach ($courses as $course)
                             <option value="{{ $course->course_name }}">{{ $course->course_name }}</option>
@@ -211,7 +211,7 @@
                 <div class="input-field col s4">
                     <i class="material-icons prefix">forward_10</i>
                     <select name="course_quantity">
-                        <option disabled selected>Choose the option</option>
+                        <option value="{{ $student->course_quantity }}" selected>{{ $student->course_quantity }}</option>
 
                         @for ($qty = 1; $qty <= 10; $qty++)
                             <option value="{{ $qty }}">{{ $qty }}</option>
@@ -223,7 +223,7 @@
                 <div class="input-field col s4">
                     <i class="material-icons prefix">date_range</i>
                     <select name="course_academic_year">
-                        <option value="" disabled selected>Choose the option</option>
+                        <option value="{{ $student->course_academic_year }}" selected>{{ $student->course_academic_year }}</option>
                         <option value="{{ date('Y') + 1 }} - {{ date('Y') + 2 }}">{{ date('Y') + 1 }} - {{ date('Y') + 2 }}</option>
                         <option value="{{ date('Y') }} - {{ date('Y') + 1 }}">{{ date('Y') }} - {{ date('Y') + 1 }}</option>
                         <option value="{{ date('Y') - 1 }} - {{ date('Y') }}">{{ date('Y') - 1 }} - {{ date('Y') }}</option>
@@ -235,7 +235,7 @@
                 <div class="input-field col s4">
                     <i class="material-icons prefix">payment</i>
                     <select name="payment_method">
-                        <option disabled selected>Choose the option</option>
+                        <option value="{{ $student->payment_method }}" selected>{{ $student->payment_method }}</option>
                         <option value="Cash">Cash</option>
                         <option value="Debit Card - Credit Card ">Debit Card - Credit Card </option>
                         <option value="Bank Transfert">Bank Transfert</option>
@@ -249,7 +249,7 @@
                 <div class="input-field col s4">
                     <i class="material-icons prefix">forward_10</i>
                     <select name="payment_installment">
-                        <option value="" disabled selected>Choose the option</option>
+                        <option value="{{ $student->payment_installment }}" selected>{{ $student->payment_installment }}</option>
 
                         @for ($installment = 1; $installment <= 10; $installment++)
                             <option value="{{ $installment }}">{{ $installment }}</option>
@@ -260,14 +260,14 @@
 
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_balance</i>
-                    <input id="course_fees" type="text" class="validate" name="course_fees">
+                    <input id="course_fees" type="text" class="validate" name="course_fees" value="{{ $student->course_fees }}">
                     <label for="course_fees">Course Fees</label>
                 </div>
 
                 <div class="input-field col s4">
                     <i class="material-icons prefix">payment</i>
                     <select name="course_discount_method">
-                        <option disabled selected>Choose the option</option>
+                        <option value="{{ $student->course_discount_method }}" selected>{{ $student->course_discount_method }}</option>
                         <option value="Percentage">Percentage</option>
                         <option value="Amount">Amount</option>
                     </select>
@@ -276,18 +276,18 @@
 
                 <div class="input-field col s4">
                     <i class="material-icons prefix">assignment_returned</i>
-                    <input id="course_discount" type="text" class="validate" name="course_discount">
+                    <input id="course_discount" type="text" class="validate" name="course_discount" {{ $student->course_discount }}>
                     <label for="course_discount">Discount</label>
                 </div>
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">description</i>
-                    <textarea id="course_notes" class="materialize-textarea"></textarea>
+                    <textarea id="course_notes" class="materialize-textarea">{{ $student->course_notes }}</textarea>
                     <label>Notes</label>
                 </div>
 
                 {{-- Roll Number --}}
-                <input type="hidden" name="rollno" value="{{ date('Y') }}-">
+                <input type="hidden" name="rollno" value="{{ $student->rollno }}-">
 
                 <div class="col s12">
                     <button class="btn waves-effect waves-light" type="submit" onclick="viewData()" name="submit">Submit
