@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Course;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 use Image;
 
 class StudentsController extends Controller
@@ -63,7 +65,7 @@ class StudentsController extends Controller
             'gender' => 'required',
             'date_of_birth' => 'required|date',
             'address' => 'required',
-            'pictures' => 'nullable',
+            'pictures' => 'nullable|image',
             'documents' => 'nullable|file',
             'school_college' => 'nullable|min:5',
             'guardian_title_name' => 'nullable',
@@ -88,12 +90,16 @@ class StudentsController extends Controller
             'payment_installment' => 'nullable',
         ]);
 
-        if ($request->hasFile['featured_image'])
-        {
-            $pictures = $request->file['featured_image'];
-            $pfilename = time(). '.' .$pictures->getClientOriginalExtension();
-            $location= public_path('assets/images/students/'. $pfilename);
-            Image::make($pictures)->resize(800, 420)->save($location);
+        $pictures = $request->file('pictures');
+
+        if ($pictures) {
+            $pictures = $request->file('pictures')->store('public/images/students');
+        }
+
+        $documents = $request->file('documents');
+
+        if ($documents) {
+            $documents = $request->file('documents')->store('public/documents/students');
         }
 
         Student::create([
@@ -106,8 +112,8 @@ class StudentsController extends Controller
             'gender' => $request->gender,
             'date_of_birth' => $request->date_of_birth,
             'address' => $request->address,
-            'pictures' => $pfilename,
-            'documents' => $request->documents,
+            'pictures' => $pictures,
+            'documents' => $documents,
             'school_college' => $request->school_college,
             'guardian_title_name' => $request->guardian_title_name,
             'guardian_first_name' => $request->guardian_first_name,
@@ -130,6 +136,8 @@ class StudentsController extends Controller
             'payment_method' => $request->payment_method,
             'payment_installment' => $request->payment_installment
         ]);
+
+        Mail::to($emails['email'])->send(new SendEmailStudents($email));
 
         return redirect()->route('students.index')
                          ->with('success', 'Student has been registered');
@@ -182,7 +190,7 @@ class StudentsController extends Controller
             'gender' => 'required',
             'date_of_birth' => 'required|date',
             'address' => 'required',
-            'pictures' => 'nullable',
+            'pictures' => 'nullable|image',
             'documents' => 'nullable|file',
             'school_college' => 'nullable|min:5',
             'guardian_title_name' => 'nullable',
@@ -207,16 +215,16 @@ class StudentsController extends Controller
             'payment_installment' => 'nullable',
         ]);
 
-        $pictures = "";
+        $pictures = $request->file('pictures');
 
-        if ($request->hasFile['pictures'])
-        {
-            $pictures = $request->file['pictures'];
-            $pfilename = time(). '.' .request()->$pictures->getClientOriginalExtension();
-            $location = public_path('assets/images/students/'. $pfilename);
-            Image::make($pictures)->resize(800, 420)->save($location);
+        if ($pictures) {
+            $pictures = $request->file('pictures')->store('public/images/students');
+        }
 
-            $pictures = $pfilename;
+        $documents = $request->file('documents');
+
+        if ($documents) {
+            $documents = $request->file('documents')->store('public/documents/students');
         }
 
         $students = Student::findOrFail($id);
@@ -232,7 +240,7 @@ class StudentsController extends Controller
             'date_of_birth' => $request->date_of_birth,
             'address' => $request->address,
             'pictures' => $pictures,
-            'documents' => $request->documents,
+            'documents' => $documents,
             'school_college' => $request->school_college,
             'guardian_title_name' => $request->guardian_title_name,
             'guardian_first_name' => $request->guardian_first_name,

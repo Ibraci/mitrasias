@@ -9,7 +9,7 @@
             </tr>
             <tr>
                 <td><h5>Course Subject:</h5></td>
-                <td><h5>{{ $course->course_sbujects }}</h5></td>
+                <td><h5>{{ $course->course_subjects }}</h5></td>
             </tr>
             <tr>
                 <td><h5>Course Fees:</h5></td>

@@ -20,7 +20,7 @@
         </div>
     @endif
     <div class="row">
-        <form class="col s12" method="POST" action="{{ route('students.update', $student) }}">
+        <form class="col s12" method="POST" enctype="multipart/form-data" action="{{ route('students.update', $student) }}">
 
             {{ csrf_field() }}
 
@@ -101,10 +101,10 @@
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>Document</span>
-                            <input type="file" name="document" value="{{ $student->document }}">
+                            <input type="file" name="documents">
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
+                            <input class="file-path validate" type="text" value="{{ $student->documents }}">
                         </div>
                     </div>
                 </div>
@@ -113,10 +113,10 @@
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>Pictures</span>
-                            <input type="file" name="pictures" value="{{ $student->pictures }}">
+                            <input type="file" name="pictures">
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
+                            <input class="file-path validate" type="text" value="{{ $student->pictures }}">
                         </div>
                     </div>
                 </div>

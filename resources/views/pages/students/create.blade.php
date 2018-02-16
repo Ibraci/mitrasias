@@ -110,7 +110,7 @@
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>Pictures</span>
-                            <input type="file" name="pictures">
+                            <input type="file" name="pictures" id="pictures">
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text">
