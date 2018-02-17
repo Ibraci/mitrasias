@@ -29,17 +29,8 @@ Route::resource('/batches', 'BatchesController');
 // emails
 Route::resource('/emails', 'EmailsController');
 
-// Email Page (Front End)
-// Route::get('/communications/email', 'CommunicationsController@email');
-
-// Sending email (action email form)
-// Route::post('/communications/email/send', 'CommunicationsController@emailSend');
-
-// SMS Page (Front End)
-Route::get('/communications/sms', 'CommunicationsController@sms');
-
-// Sending SMS (action SMS form)
-Route::post('/communications/sms/send', 'CommunicationsController@smsSend');
+// sms
+Route::resource('/sms', 'SmsController');
 
 // Authentification (Login, Register, Forgot Password)
 Auth::routes();

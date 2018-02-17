@@ -18,8 +18,8 @@
             @foreach ($students as $student)
                 <tr>
                     <td>{{ $student->id }}</td>
-                    <td>{{ $student->first_name }}</td>
-                    <td>{{ $student->last_name }}</td>
+                    <td><a href="{{ route('students.show', $student) }}">{{ $student->first_name }}</a></td>
+                    <td><a href="{{ route('students.show', $student) }}">{{ $student->last_name }}</a></td>
                     <td>{{ $student->email }}</td>
                     <td>{{ $student->phone }}</td>
                     <td>

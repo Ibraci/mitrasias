@@ -157,6 +157,11 @@
             </a/>
             <ul>
                 <li>
+                    <a href="{{ route('students.create') }}" class="btn-floating red">
+                        <i class="material-icons">add</i>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('students.edit', $student) }}" class="btn-floating red">
                         <i class="material-icons">edit</i>
                     </a>
@@ -165,7 +170,7 @@
                     <form action="{{ route('students.destroy', $student) }}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button type="submit">
+                        <button class="btn-floating red" type="submit">
                             <i class="material-icons">delete</i>
                         </button>
                     </form>

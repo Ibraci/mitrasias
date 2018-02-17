@@ -420,6 +420,7 @@ class ComposerStaticInit722d18c165a30aceebf48c97fc41e024
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Rules\\FirstLetterUppercase' => __DIR__ . '/../..' . '/app/Rules/FirstLetterUppercase.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\sms' => __DIR__ . '/../..' . '/app/sms.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'Aws\\Acm\\AcmClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Acm/AcmClient.php',

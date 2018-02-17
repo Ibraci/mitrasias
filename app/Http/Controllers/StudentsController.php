@@ -55,6 +55,7 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request,  [
             'rollno' => 'required|unique:students',
             'first_name' => 'required|min:3',
@@ -80,15 +81,20 @@ class StudentsController extends Controller
             'course_name' => 'required',
             'course_academic_year' => 'required',
             'course_quantity' => 'nullable',
-            'course_fees' => 'required',
-            'course_discount' => 'nullable',
+            'course_fees' => 'required|numeric',
             'course_discount_method' => 'nullable',
             'course_total_fees' => 'nullable',
-            'course_notes' => 'nullable',
+            'course_notes' => 'nullable|min:5',
             'course_batch' => 'nullable',
             'payment_method' => 'nullable',
             'payment_installment' => 'nullable',
         ]);
+
+        if ($request->course_discount_method == 'Percentage') {
+            $v = Validator::make($data, [
+                'course_discount' => 'nullable|numeric|digits_between:1, 100',
+            ]);
+        }
 
         $pictures = $request->file('pictures');
 

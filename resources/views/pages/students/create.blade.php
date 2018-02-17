@@ -31,34 +31,34 @@
                 </div>
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="first_name" type="text" class="validate" name="first_name">
+                    <input id="first_name" type="text" class="validate" name="first_name" value="{{ old('first_name') }}">
                     <label for="first_name">First Name</label>
                 </div>
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="middle_name" type="text" class="validate" name="middle_name">
+                    <input id="middle_name" type="text" class="validate" name="middle_name" value="{{ old('middle_name') }}">
                     <label for="middle_name">Middle Name</label>
                 </div>
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="last_name" type="text" class="validate" name="last_name">
+                    <input id="last_name" type="text" class="validate" name="last_name" value="{{ old('last_name') }}">
                     <label for="last_name">Last Name</label>
                 </div>
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">phone</i>
-                    <input id="phone" type="tel" class="validate" name="phone">
+                    <input id="phone" type="tel" class="validate" name="phone" value="{{ old('phone') }}">
                     <label for="phone">Telephone</label>
                 </div>
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">email</i>
-                    <input id="email" type="email" class="validate" name="email">
+                    <input id="email" type="email" class="validate" name="email" value="{{ old('email') }}">
                     <label for="email">Email</label>
                 </div>
 
                 <div class="input-field col s4">
-                    <input name="date_of_birth" id="date_of_birth" type="text" class="datepicker">
+                    <input name="date_of_birth" value="{{ old('date_of_birth') }}" id="date_of_birth" type="text" class="datepicker">
                     <label for="date_of_birth">Choose Date of Birth</label>
                 </div>
 
@@ -69,14 +69,14 @@
 
                     <div class="col s4">
                         <p>
-                            <input name="gender" type="radio" id="male" value="Male"/>
+                            <input name="gender" type="radio" id="male" value="Male" {{ old('gender') == 'Male' ? 'checked' : '' }}/>
                             <label for="male">Male</label>
                         </p>
                     </div>
 
                     <div class="col s4">
                         <p>
-                            <input name="gender" type="radio" id="female" value="Female"/>
+                            <input name="gender" type="radio" id="female" value="Female" {{ old('gender') == 'Female' ? 'checked' : '' }}/>
                             <label for="female">Female</label>
                         </p>
                     </div>
@@ -84,13 +84,13 @@
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">school</i>
-                    <input id="school_college" type="text" class="validate" name="school_college">
+                    <input id="school_college" type="text" class="validate" name="school_college" value="{{ old('school_college') }}">
                     <label for="school_college">School/College</label>
                 </div>
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">map</i>
-                    <input id="address" type="text" class="validate" name="address">
+                    <input id="address" type="text" class="validate" name="address" value="{{ old('address') }}">
                     <label for="address">Address</label>
                 </div>
                 <div class="file-field input-field">
@@ -98,7 +98,7 @@
                 <div class="col s6">
                         <div class="btn">
                             <span>Document</span>
-                            <input type="file" name="document">
+                            <input type="file" name="document" value="{{ old('document') }}">
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text">
@@ -110,7 +110,7 @@
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>Pictures</span>
-                            <input type="file" name="pictures" id="pictures">
+                            <input type="file" name="pictures" id="pictures" value="{{ old('pictures') }}">
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text">
@@ -124,25 +124,25 @@
                 </div>
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="guardian_first_name" type="text" class="validate" name="guardian_first_name">
+                    <input id="guardian_first_name" type="text" class="validate" name="guardian_first_name" value="{{ old('guardian_first_name') }}">
                     <label for="guardian_first_name">First Name</label>
                 </div>
 
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="guardian_middle_name" type="text" class="validate" name="guardian_middle_name">
+                    <input id="guardian_middle_name" type="text" class="validate" name="guardian_middle_name" value="{{ old('guardian_middle_name') }}">
                     <label for="guardian_middle_name">Middle Name</label>
                 </div>
 
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="guardian_last_name" type="text" class="validate" name="guardian_last_name">
+                    <input id="guardian_last_name" type="text" class="validate" name="guardian_last_name" value="{{ old('guardian_last_name') }}">
                     <label for="guardian_last_name">Last Name</label>
                 </div>
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">work</i>
-                    <input id="guardian_occupation" type="text" class="validate" name="guardian_occupation">
+                    <input id="guardian_occupation" type="text" class="validate" name="guardian_occupation" value="{{ old('guardian_occupation') }}">
                     <label for="guardian_occupation">Occupation</label>
                 </div>
 
@@ -256,7 +256,7 @@
 
                 <div class="input-field col s4">
                     <i class="material-icons prefix">account_balance</i>
-                    <input id="course_fees" type="text" class="validate" name="course_fees">
+                    <input id="course_fees" type="text" class="validate" name="course_fees" value="{{ old('course_fees') }}">
                     <label for="course_fees">Course Fees</label>
                 </div>
 
@@ -272,13 +272,13 @@
 
                 <div class="input-field col s4">
                     <i class="material-icons prefix">assignment_returned</i>
-                    <input id="course_discount" type="text" class="validate" name="course_discount">
+                    <input id="course_discount" type="text" class="validate" name="course_discount" value="{{ old('course_discount') }}">
                     <label for="course_discount">Discount</label>
                 </div>
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">description</i>
-                    <textarea id="course_notes" class="materialize-textarea"></textarea>
+                    <textarea id="course_notes" name="course_notes" class="materialize-textarea">{{ old('course_notes') }}</textarea>
                     <label>Notes</label>
                 </div>
 

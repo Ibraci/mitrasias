@@ -49,7 +49,7 @@
             <li class="no-padding">
                 <a class="collapsible-header waves-effect waves-grey" href="#"><i class="material-icons">email</i>Communication<i class="material-icons right">arrow_drop_down</i></a>
                 <ul class="sub-menu">
-                    <li><a href="/communications/sms">SMS</a></li>
+                    <li><a href="{{ route('sms.create') }}">SMS</a></li>
                     <li><a href="{{ route('emails.create') }}">E-Mail</a></li>
                 </ul>
             </li>

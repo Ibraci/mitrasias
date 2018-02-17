@@ -40,6 +40,7 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Rules\\FirstLetterUppercase' => $baseDir . '/app/Rules/FirstLetterUppercase.php',
     'App\\User' => $baseDir . '/app/User.php',
+    'App\\sms' => $baseDir . '/app/sms.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
     'Aws\\Acm\\AcmClient' => $vendorDir . '/aws/aws-sdk-php/src/Acm/AcmClient.php',
